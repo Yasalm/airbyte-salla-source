@@ -1,0 +1,76 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": true,
+    "properties": {
+        "status": {
+            "type": ["null", "number"],
+            "description": "Response Status Code"
+        },
+        "success": {
+            "type": ["null", "boolean"],
+            "description": "Whether or not the response is successful"
+        },
+        "data": {
+            "type": ["null", "array"],
+            "uniqueItems": true,
+            "items": {
+                "type": ["null", "object"],
+                "properties": {
+                    "id": {
+                        "type": ["null", "number"],
+                        "description": "Cart ID"
+                    },
+                    "name": {
+                        "type": ["null", "string"]
+                    }
+
+                    }
+                }
+            
+        },
+        "pagination": {
+            "$ref": "#/definitions/Pagination"
+        }
+    },
+    "definitions": {
+        "Pagination": {
+            "description": "For a better response behavior as well as maintain the best security level, All retrieving API endpoints use a mechanism to retrieve data in chunks called pagination.  Pagination working by return only a specific number of records in each response, and through passing the page number you can navigate the different pages.",
+            "type": ["null", "object"],
+            "x-examples": {},
+            "x-tags": [
+                "Models"
+            ],
+            "properties": {
+                "count": {
+                    "type": ["null", "number"],
+                    "description": "number of returned results"
+                },
+                "total": {
+                    "type": ["null", "number"],
+                    "description": "number of all results"
+                },
+                "perPage": {
+                    "type": ["null", "number"],
+                    "description": "number of results per page",
+                    "maximum": 65
+                },
+                "currentPage": {
+                    "type": ["null", "number"],
+                    "description": "number of current page"
+                },
+                "totalPages": {
+                    "type": ["null", "number"],
+                    "description": "number of total pages "
+                },
+                "links": {
+                    "type": ["null", "array"],
+                    "description": "array of linkes to next and previous pages",
+                    "items": {
+                        "type": ["null", "string"]
+                    }
+                }
+            },
+            "title": "Pagination"
+        }
+    }
+}

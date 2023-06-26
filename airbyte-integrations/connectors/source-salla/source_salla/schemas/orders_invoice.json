@@ -1,0 +1,229 @@
+{
+    "additionalProperties": true,
+    "type": ["object", "null"],
+    "title": "Invoice Response",
+    "x-tags": [
+        "Models"
+    ],
+    "properties": {
+        "id": {
+            "type": ["number", "null"],
+            "description": "Invoice ID",
+            "example": 458282634
+        },
+        "order_id": {
+            "type": ["integer", "null"],
+            "description": "Order ID",
+            "example": 1557892161
+        },
+        "type": {
+            "type": ["string", "null"],
+            "description": "Invoice Type",
+            "example": "Credit Note"
+        },
+        "sub_total": {
+            "type": ["object", "null"],
+            "properties": {
+                "amount": {
+                    "type": ["string", "null"],
+                    "description": "Subtotal Amount",
+                    "example": "300.00"
+                },
+                "currency": {
+                    "type": ["string", "null"],
+                    "description": "Subtotal Currency",
+                    "example": "SAR"
+                }
+            }
+        },
+        "shipping_cost": {
+            "type": ["object", "null"],
+            "properties": {
+                "amount": {
+                    "type": ["string", "null"],
+                    "description": "Shipping Cost Amount",
+                    "example": "182.50"
+                },
+                "currency": {
+                    "type": ["string", "null"],
+                    "description": "Shipping Cost Currency",
+                    "example": "SAR"
+                }
+            }
+        },
+        "cod_cost": {
+            "type": ["object", "null"],
+            "properties": {
+                "amount": {
+                    "type": ["string", "null"],
+                    "description": "Cash On Delivery Amount",
+                    "example": "0.00"
+                },
+                "currency": {
+                    "type": ["string", "null"],
+                    "description": "Cash On Delivery Currency",
+                    "example": "SAR"
+                }
+            }
+        },
+        "discount": {
+            "type": ["object", "null"],
+            "properties": {
+                "amount": {
+                    "type": ["string", "null"],
+                    "description": "Discount Amount",
+                    "example": "0.00"
+                },
+                "currency": {
+                    "type": ["string", "null"],
+                    "description": "Discount Currency",
+                    "example": "SAR"
+                }
+            }
+        },
+        "tax": {
+            "type": ["object", "null"],
+            "properties": {
+                "percent": {
+                    "type": ["string", "null"],
+                    "description": "Tax Percentage Value",
+                    "example": "0.00"
+                },
+                "amount": {
+                    "type": ["object", "null"],
+                    "properties": {
+                        "amount": {
+                            "type": ["string", "null"],
+                            "description": "Tax Amount Value",
+                            "example": "0.00"
+                        },
+                        "currency": {
+                            "type": ["string", "null"],
+                            "description": "Tax Amount Value Currency",
+                            "example": "SAR"
+                        }
+                    }
+                }
+            }
+        },
+        "total": {
+            "type": ["object", "null"],
+            "properties": {
+                "amount": {
+                    "type": ["number", "null"],
+                    "description": "Total Amount Value",
+                    "example": 482.5
+                },
+                "currency": {
+                    "type": ["string", "null"],
+                    "description": "Total Amount Currency",
+                    "example": "SAR"
+                }
+            }
+        },
+        "date": {
+            "type": ["string", "null"],
+            "description": "Invoice Date",
+            "example": "2022-01-19"
+        },
+        "items": {
+            "type": ["array", "null"],
+            "uniqueItems": true,
+            "items": {
+                "type": ["object", "null"],
+                "properties": {
+                    "id": {
+                        "type": ["number", "null"],
+                        "example": 105272559,
+                        "description": "The invoice item ID"
+                    },
+                    "item_id": {
+                        "type": ["number", "null"],
+                        "example": 1155070869,
+                        "description": "The items ID in the order details"
+                    },
+                    "name": {
+                        "type": ["string", "null"],
+                        "description": "Product Name",
+                        "example": "T-Shirt"
+                    },
+                    "quantity": {
+                        "type": ["number", "null"],
+                        "description": "Product Quantity",
+                        "example": 1
+                    },
+                    "price": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "amount": {
+                                "type": ["string", "null"],
+                                "description": "Product Price Amount",
+                                "example": "300.00"
+                            },
+                            "currency": {
+                                "type": ["string", "null"],
+                                "description": "Product Price Currency",
+                                "example": "SAR"
+                            }
+                        }
+                    },
+                    "discount": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "amount": {
+                                "type": ["string", "null"],
+                                "description": "Product Discount Amount",
+                                "example": "0.00"
+                            },
+                            "currency": {
+                                "type": ["string", "null"],
+                                "description": "Product Discount Currency",
+                                "example": "SAR"
+                            }
+                        }
+                    },
+                    "tax": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "percent": {
+                                "type": ["string", "null"],
+                                "description": "Tax Percentage Value",
+                                "example": "0.00"
+                            },
+                            "amount": {
+                                "type": ["object", "null"],
+                                "properties": {
+                                    "amount": {
+                                        "type": ["string", "null"],
+                                        "description": "Tax Amount Value",
+                                        "example": "0.00"
+                                    },
+                                    "currency": {
+                                        "type": ["string", "null"],
+                                        "description": "Tax Amount Currency",
+                                        "example": "SAR"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "total": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "amount": {
+                                "type": ["number", "null"],
+                                "description": "Total Amount Value",
+                                "example": 300
+                            },
+                            "currency": {
+                                "type": ["string", "null"],
+                                "description": "Total Amount Currency",
+                                "example": "SAR"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+{   
+    "type": ["object", "null"],
+    "additionalProperties": true,
+    "x-tags": [
+        "Models"
+    ],
+    "title": "Brands",
+    "properties": {
+        "id": {
+            "description": "Brand ID",
+            "type": ["integer", "null"]
+        },
+        "name": {
+            "type": ["string", "null"],
+            "description": "Brand name. 🌐 [Support multi-language](docs/1.%20Introduction/1.6.Multi-Language-Support.md)"
+        },
+        "description": {
+            "type": ["string", "null"],
+            "description": "Brand description. 🌐 [Support multi-language](docs/1.%20Introduction/1.6.Multi-Language-Support.md)"
+        },
+        "banner": {
+            "type": ["string", "null"],
+            "description": "Brand banner"
+        },
+        "logo": {
+            "type": ["string", "null"],
+            "description": "Brand Logo"
+        },
+        "ar_char": {
+            "type": ["string", "null"],
+            "description": "Brand Arabic character"
+        },
+        "en_char": {
+            "type": ["string", "null"],
+            "description": "Brand English character"
+        }
+    }
+}

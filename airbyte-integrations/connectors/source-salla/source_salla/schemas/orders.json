@@ -1,0 +1,1196 @@
+{
+
+  "additionalProperties": true,
+  "type": ["object", "null"],
+  "properties": {
+    "id": {
+      "type": ["integer", "null"],
+      "description": "Order ID"
+    },
+    "reference_id": {
+      "type": ["integer", "null"],
+      "description": "Order refrence ID, that appears to customers in the store."
+    },
+    "urls": {
+      "$ref": "#/definitions/URLs"
+    },
+    "date": {
+      "$ref": "#/definitions/Date"
+    },
+    "source": {
+      "type": ["string", "null"],
+      "description": "The source of the order whether from the store or the dashboard."
+    },
+    "source_device": {
+      "type": ["string", "null"],
+      "description": "The machine or device used when the customer placed the order."
+    },
+    "source_details": {
+      "type": ["object", "null"],
+      "properties": {
+        "type": {
+          "type": ["string", "null"],
+          "description": "Order Source Type"
+        },
+        "value": {
+          "type": ["string", "null"],
+          "description": "Order Source Value",
+          "nullable": true
+        },
+        "device": {
+          "type": ["string", "null"],
+          "description": "Order Source Device"
+        },
+        "user-agent": {
+          "type": ["string", "null"],
+          "description": "Order Source User Agent"
+        },
+        "ip": {
+          "type": ["string", "null"],
+          "description": "Order Source IP"
+        }
+      }
+    },
+    "first_complete_at": {
+      "type": ["object", "null"],
+      "description": "Gets the first date of changing the order status to `completed`.",
+      "nullable": true,
+      "properties": {
+        "date": {
+          "type": ["string", "null"],
+          "description": "First Complete At date stamp"
+        },
+        "timeone_type": {
+          "type": ["integer", "null"],
+          "description": "Timezone type"
+        },
+        "timezone": {
+          "type": ["string", "null"],
+          "description": "Timezone value"
+        }
+      }
+    },
+    "status": {
+      "type": ["object", "null"],
+      "properties": {
+        "id": {
+          "type": ["integer", "null"],
+          "description": "Status ID"
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "Status Name"
+        },
+        "slug": {
+          "type": ["string", "null"],
+          "description": "Status Slug"
+        }
+      }
+    },
+    "payment_method": {
+      "type": ["string", "null"],
+      "description": "Order payment method"
+    },
+    "currency": {
+      "type": ["string", "null"],
+      "description": "Order currency"
+    },
+    "amounts": {
+      "type": ["object", "null"],
+      "properties": {
+        "sub_total": {
+          "type": ["object", "null"],
+          "properties": {
+            "amount": {
+              "type": ["integer", "null"],
+              "description": "Order sub total amount"
+            },
+            "currency": {
+              "type": ["string", "null"],
+              "description": "Order sub total currency"
+            }
+          }
+        },
+        "shipping_cost": {
+          "type": ["object", "null"],
+          "properties": {
+            "amount": {
+              "type": ["integer", "null"],
+              "description": "Order shipping cost amount"
+            },
+            "currency": {
+              "type": ["string", "null"],
+              "description": "Order shipping cost amount"
+            }
+          }
+        },
+        "cash_on_delivery": {
+          "type": ["object", "null"],
+          "properties": {
+            "amount": {
+              "type": ["integer", "null"],
+              "description": "Order cash on delivery cost amount"
+            },
+            "currency": {
+              "type": ["string", "null"],
+              "description": "Order cash on delivery cost curreny"
+            }
+          }
+        },
+        "tax": {
+          "type": ["object", "null"],
+          "properties": {
+            "percent": {
+              "type": ["string", "null"],
+              "description": "Tax percentage value"
+            },
+            "amount": {
+              "type": ["object", "null"],
+              "properties": {
+                "amount": {
+                  "type": ["integer", "null"],
+                  "description": "Order tax amount"
+                },
+                "currency": {
+                  "type": ["string", "null"],
+                  "description": "Order tax amount currency"
+                }
+              }
+            }
+          }
+        },
+        "discounts": {
+          "type": ["array", "null"],
+          "items": {
+            "type": ["object", "null"],
+            "properties": {
+              "title": {
+                "type": ["string", "null"],
+                "description": "Order discounts title"
+              },
+              "type": {
+                "type": ["string", "null"],
+                "description": "Order discounts type"
+              },
+              "code": {
+                "type": ["string", "null"],
+                "description": "Order discounts code"
+              },
+              "discount": {
+                "type": ["string", "null"],
+                "description": "Order discount  value"
+              },
+              "discounted_shipping": {
+                "type": ["integer", "null"],
+                "description": "Order discount shipping"
+              }
+            }
+          }
+        },
+        "total": {
+          "type": ["object", "null"],
+          "properties": {
+            "amount": {
+              "type": ["integer", "null"],
+              "description": "Order total cost amount."
+            },
+            "currency": {
+              "type": ["string", "null"],
+              "description": "Order total cost currency"
+            }
+          }
+        }
+      }
+    },
+    "shipping": {
+      "type": ["object", "null"],
+      "properties": {
+        "id": {
+          "type": ["integer", "null"],
+          "description": "Order shipping ID"
+        },
+        "app_id": {
+          "type": ["string", "null"],
+          "description": "Shipping Application ID",
+          "nullable": true
+        },
+        "company": {
+          "type": ["string", "null"],
+          "description": "Order shipping company"
+        },
+        "logo": {
+          "type": ["string", "null"],
+          "description": "Shipping company logo"
+        },
+        "receiver": {
+          "type": ["object", "null"],
+          "properties": {
+            "name": {
+              "type": ["string", "null"],
+              "description": "Order receiver name"
+            },
+            "email": {
+              "type": ["string", "null"],
+              "description": "Order receiver details"
+            },
+            "phone": {
+              "type": ["string", "null"],
+              "description": "Order receiver phone"
+            }
+          }
+        },
+        "shipper": {
+          "type": ["object", "null"],
+          "properties": {
+            "name": {
+              "type": ["string", "null"],
+              "description": "Order shipper name"
+            },
+            "company_name": {
+              "type": ["string", "null"],
+              "description": "Order shipper company name"
+            },
+            "email": {
+              "type": ["string", "null"],
+              "description": "Order shipper email"
+            },
+            "phone": {
+              "type": ["string", "null"],
+              "description": "Order shipper phone"
+            }
+          }
+        },
+        "pickup_address": {
+          "type": ["object", "null"],
+          "properties": {
+            "country": {
+              "type": ["string", "null"],
+              "description": "Order pickup address country"
+            },
+            "country_code": {
+              "type": ["string", "null"],
+              "description": "Order pickup address country code"
+            },
+            "city": {
+              "type": ["string", "null"],
+              "description": "Order pickup address city"
+            },
+            "shipping_address": {
+              "type": ["string", "null"],
+              "description": "Order pickup address shipping address"
+            },
+            "street_number": {
+              "type": ["string", "null"],
+              "description": "Order pickup address street number"
+            },
+            "block": {
+              "type": ["string", "null"],
+              "description": "Order pickup address block"
+            },
+            "postal_code": {
+              "type": ["string", "null"],
+              "description": "Order pickup address postal code"
+            },
+            "geo_coordinates": {
+              "type": ["object", "null"],
+              "properties": {
+                "lat": {
+                  "type": ["number", "null"],
+                  "description": "Pick Up address GEO coordinates latitude "
+                },
+                "lng": {
+                  "type": ["number", "null"],
+                  "description": "Pick Up address GEO coordinates longitude"
+                }
+              }
+            }
+          }
+        },
+        "address": {
+          "type": ["object", "null"],
+          "properties": {
+            "country": {
+              "type": ["string", "null"],
+              "description": "Order shipping address country"
+            },
+            "country_code": {
+              "type": ["string", "null"],
+              "description": "Order shipping address country code"
+            },
+            "city": {
+              "type": ["string", "null"],
+              "description": "Order shipping address city"
+            },
+            "shipping_address": {
+              "type": ["string", "null"],
+              "description": "Order shipping address"
+            },
+            "street_number": {
+              "type": ["string", "null"],
+              "description": "Order shipping address street number"
+            },
+            "block": {
+              "type": ["string", "null"],
+              "description": "Order shipping address block"
+            },
+            "postal_code": {
+              "type": ["string", "null"],
+              "description": "Order shipping address postal code"
+            },
+            "geo_coordinates": {
+              "type": ["object", "null"],
+              "properties": {
+                "lat": {
+                  "type": ["integer", "null"],
+                  "description": "Address GEO latitude "
+                },
+                "lng": {
+                  "type": ["integer", "null"],
+                  "description": "Address GEO longitude"
+                }
+              }
+            }
+          }
+        },
+        "shipment": {
+          "type": ["object", "null"],
+          "properties": {
+            "id": {
+              "type": ["string", "null"],
+              "description": "Order shipment ID"
+            },
+            "pickup_id": {
+              "type": ["integer", "null"],
+              "description": "Order shipment pickup ID"
+            },
+            "tracking_link": {
+              "type": ["string", "null"],
+              "description": "Order tracking link"
+            },
+            "label": {
+              "type": ["array", "null"],
+              "items": {
+                "type": ["object", "null"],
+                "properties": {
+                  "format": {
+                    "type": ["string", "null"],
+                    "description": "Label Format"
+                  },
+                  "url": {
+                    "type": ["string", "null"],
+                    "description": "Label URL"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "policy_options": {
+          "type": ["array", "null"],
+          "items": {
+            "type": ["object", "null"],
+            "properties": {
+              "boxes": {
+                "type": ["string", "null"],
+                "description": "Number of boxes when generating the awb"
+              }
+            }
+          }
+        }
+      }
+    },
+    "can_cancel": {
+      "type": ["boolean", "null"],
+      "description": "Whether or not if the order is allowed to be cancelled by store customers.<br>\n`True` value should be set if the order status is in under review and in progress, as according to the store settings."
+    },
+    "show_weight": {
+      "type": ["boolean", "null"],
+      "description": "Whether or not to show weight value"
+    },
+    "can_reorder": {
+      "type": ["boolean", "null"],
+      "description": "Whether or not the order allowed to be re-order by customers"
+    },
+    "is_pending_payment": {
+      "type": ["boolean", "null"],
+      "description": "Waiting the customer to pay the order or the order status is `payment_pending`"
+    },
+    "pending_payment_ends_at": {
+      "type": ["integer", "null"],
+      "description": "Last date allowed to customer to pay the order"
+    },
+    "total_weight": {
+      "type": ["string", "null"],
+      "description": "Total weight value"
+    },
+    "rating_link": {
+      "type": ["string", "null"],
+      "description": "Order Rating Link. <br> Note that the order has to be of either of the following statuses: `completed`, `delivered`, and `shipped`. The merchant has to allow the product to be rated from the [Store Settings](https://s.salla.sa/settings) > Rating Settings",
+      "nullable": true
+    },
+    "shipment_branch": {
+      "$ref": "#/definitions/ShipmentBranch"
+    },
+    "customer": {
+      "$ref": "#/definitions/Customer"
+    },
+    "items": {
+      "type": ["array", "null"],
+      "items": {
+        "type": ["object", "null"],
+        "properties": {
+          "id": {
+            "type": ["integer", "null"],
+            "description": "Order item ID"
+          },
+          "name": {
+            "type": ["string", "null"],
+            "description": "Order item name"
+          },
+          "sku": {
+            "type": ["string", "null"],
+            "description": "Order item sku"
+          },
+          "quantity": {
+            "type": ["integer", "null"],
+            "description": "Order item quantity"
+          },
+          "currency": {
+            "type": ["string", "null"],
+            "description": "Order item currency"
+          },
+          "weight": {
+            "type": ["number", "null"],
+            "description": "Order item weight"
+          },
+          "weight_label": {
+            "type": ["string", "null"],
+            "description": "Order item weight label"
+          },
+          "amounts": {
+            "type": ["object", "null"],
+            "properties": {
+              "price_without_tax": {
+                "type": ["object", "null"],
+                "properties": {
+                  "amount": {
+                    "type": ["integer", "null"],
+                    "description": "Order item amounts price without tax "
+                  },
+                  "currency": {
+                    "type": ["string", "null"],
+                    "description": "Order item amounts price without tax currency"
+                  }
+                }
+              },
+              "total_discount": {
+                "type": ["object", "null"],
+                "properties": {
+                  "amount": {
+                    "type": ["integer", "null"],
+                    "description": "Order item amounts total discount amount"
+                  },
+                  "currency": {
+                    "type": ["string", "null"],
+                    "description": "Order item amounts total discount currency"
+                  }
+                }
+              },
+              "tax": {
+                "type": ["object", "null"],
+                "properties": {
+                  "percent": {
+                    "type": ["string", "null"],
+                    "description": "Order item amounts tax percent"
+                  },
+                  "amount": {
+                    "type": ["object", "null"],
+                    "properties": {
+                      "amount": {
+                        "type": ["integer", "null"],
+                        "description": "Order item amounts tax amount"
+                      },
+                      "currency": {
+                        "type": ["string", "null"],
+                        "description": "Order item amounts tax caurrency"
+                      }
+                    }
+                  }
+                }
+              },
+              "total": {
+                "type": ["object", "null"],
+                "properties": {
+                  "amount": {
+                    "type": ["integer", "null"],
+                    "description": "Order item amounts total amount"
+                  },
+                  "currency": {
+                    "type": ["string", "null"],
+                    "description": "Order item amounts total currency"
+                  }
+                }
+              }
+            }
+          },
+          "notes": {
+            "type": ["string", "null"],
+            "description": "Order items notes"
+          },
+          "product": {
+            "$ref": "#/definitions/ProductCard"
+          },
+          "options": {
+            "type": ["array", "null"],
+            "items": {
+              "type": ["object", "null"],
+              "properties": {
+                "id": {
+                  "type": ["integer", "null"],
+                  "description": "Product Option ID"
+                },
+                "product_option_id": {
+                  "type": ["integer", "null"],
+                  "description": "Product option ID"
+                },
+                "name": {
+                  "type": ["string", "null"],
+                  "description": "Product option name"
+                },
+                "type": {
+                  "type": ["string", "null"],
+                  "description": "Product option type",
+                  "enum": [
+                    "adio",
+                    "date",
+                    "datetime",
+                    "image",
+                    "text",
+                    "text area",
+                    "number",
+                    "checkbox",
+                    "splitter"
+                  ]
+                },
+                "value": {
+                  "type": ["array", "null"],
+                  "description": "If `type` value is set to `radio` or `checkbox`, the returned response is an object. Otherwise, a string is returned in all other available `type` values.",
+                  "items": {
+                    "type": ["object", "null"],
+                    "properties": {
+                      "id": {
+                        "type": ["integer", "null"],
+                        "description": "Option value ID"
+                      },
+                      "name": {
+                        "type": ["string", "null"],
+                        "description": "Option value name"
+                      },
+                      "price": {
+                        "type": ["object", "null"],
+                        "properties": {
+                          "amount": {
+                            "type": ["integer", "null"],
+                            "description": "Option value amount"
+                          },
+                          "currency": {
+                            "type": ["string", "null"],
+                            "description": "Option value currency "
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "images": {
+            "type": ["array", "null"],
+            "items": {
+              "type": ["object", "null"],
+              "properties": {
+                "id": {
+                  "type": ["integer", "null"],
+                  "description": "Product image ID"
+                },
+                "image": {
+                  "type": ["string", "null"],
+                  "description": "Product image "
+                },
+                "type": {
+                  "type": ["string", "null"],
+                  "description": "Product image type"
+                }
+              }
+            }
+          },
+          "codes": {
+            "type": ["array", "null"],
+            "items": {
+              "type": ["object", "null"],
+              "properties": {
+                "code": {
+                  "type": ["string", "null"],
+                  "description": "Product codes value"
+                },
+                "status": {
+                  "type": ["string", "null"],
+                  "description": "Product codes status"
+                }
+              }
+            }
+          },
+          "files": {
+            "type": ["array", "null"],
+            "items": {
+              "type": ["object", "null"],
+              "properties": {
+                "url": {
+                  "type": ["string", "null"],
+                  "description": "Product file URL"
+                },
+                "name": {
+                  "type": ["string", "null"],
+                  "description": "Product file name"
+                },
+                "size": {
+                  "type": ["number", "null"],
+                  "description": "Product file size"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "bank": {
+      "type": ["object", "null"],
+      "properties": {
+        "id": {
+          "type": ["integer", "null"],
+          "description": "Store Bank ID"
+        },
+        "bank_name": {
+          "type": ["string", "null"],
+          "description": "Bank name"
+        },
+        "bank_id": {
+          "type": ["integer", "null"],
+          "description": "Bank ID"
+        },
+        "account_name": {
+          "type": ["string", "null"],
+          "description": "Bank account name"
+        },
+        "account_number": {
+          "type": ["string", "null"],
+          "description": "Bank account number"
+        },
+        "iban_number": {
+          "type": ["string", "null"],
+          "description": "Bank account iban number"
+        },
+        "status": {
+          "type": ["string", "null"],
+          "description": "Bank status"
+        }
+      }
+    },
+    "tags": {
+      "$ref": "#/definitions/OrderTag"
+    },
+    "pickup_branch": {
+      "$ref": "#/definitions/Branch"
+    }
+  },
+  "definitions": {
+    "URLs": {
+      "description": "To help companies and merchants, Salla provides a “urls” attribute that has been added to different modules to guide the merchants to have the full URL of this module from both scopes, the dashboard scope as a store admin, and as a customer.",
+      "type": ["object", "null"],
+      "title": "Urls",
+      "x-examples": {
+        "Example": {
+          "customer": "https://shtara.com/profile",
+          "admin": "https://shtara.com/profiles"
+        }
+      },
+      "x-tags": ["Models"],
+      "properties": {
+        "customer": {
+          "type": ["string", "null"],
+          "example": "https://shtara.com/profile"
+        },
+        "admin": {
+          "type": ["string", "null"],
+          "example": "https://shtara.com/profile"
+        }
+      }
+    },
+    "Date": {
+      "description": "",
+      "type": ["object", "null"],
+      "title": "Date",
+      "x-examples": {
+        "Example": {
+          "date": "2020-10-14 14:28:03.000000",
+          "timezone_type": 3,
+          "timezone": "Asia/Riyadh"
+        }
+      },
+      "x-tags": ["Models"],
+      "properties": {
+        "date": {
+          "type": ["string", "null"],
+          "format": "date-time",
+          "description": "\"2020-10-14 14:28:03.000000\""
+        },
+        "timezone_type": {
+          "type": ["number", "null"],
+          "description": "TimeZone type, for Middel East = 3 "
+        },
+        "timezone": {
+          "type": ["string", "null"],
+          "description": "\"Asia/Riyadh\""
+        }
+      }
+    },
+    "ShipmentBranch": {
+      "title": "Shipment Branch",
+      "type": ["object", "null"],
+      "x-tags": ["Models"],
+      "description": "Shipment branch details in case of order is being shipped from a branch",
+      "properties": {
+        "id": {
+          "type": ["number", "null"],
+          "description": "Branch ID"
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "Branch Name"
+        },
+        "status": {
+          "type": ["string", "null"],
+          "description": "Branch status ( active , inactive )"
+        },
+        "is_default": {
+          "type": ["boolean", "null"],
+          "description": "Is this branch the default branch for all operations or not."
+        },
+        "type":{
+          "type": ["string", "null"],
+          "description": "Branch type (branch - warehouse)"
+        }
+      },
+      "x-examples": {}
+    },
+    "Customer": {
+      "description": "Detailed structure of the customer model object showing its fields and data types.",
+      "type": ["object", "null"],
+      "x-tags": ["Models"],
+      "title": "Customer",
+      "x-examples": {
+        "Example": {
+          "id": 2107468057,
+          "first_name": "Mohammed",
+          "last_name": "Ali",
+          "mobile": 665323256199,
+          "mobile_code": "+999",
+          "email": "customer@demo.com",
+          "avatar": "https://i.ibb.co/jyqRQfQ/avatar-male.webp",
+          "gender": "male",
+          "birthday": {
+            "date": "1997-06-03 00:00:00.000000",
+            "timezone_type": 3,
+            "timezone": "Asia/Riyadh"
+          },
+          "city": "الرياض",
+          "country": "السعودية",
+          "country_code": "sa",
+          "currency": "SAR",
+          "location": null,
+          "updated_at": "2020-01-01 01:01:00.000000"
+        }
+      },
+      "properties": {
+        "id": {
+          "type": ["number", "null"],
+          "description": "Customer's ID"
+        },
+        "first_name": {
+          "type": ["string", "null"],
+          "description": "Customer's first name"
+        },
+        "last_name": {
+          "type": ["string", "null"],
+          "description": "Customer's last name"
+        },
+        "mobile": {
+          "type": ["number", "null"],
+          "description": "Customer's mobile number, without country code"
+        },
+        "mobile_code": {
+          "type": ["string", "null"],
+          "description": "Customer's country mobile code"
+        },
+        "email": {
+          "type": ["string", "null"],
+          "description": "Customer's email"
+        },
+        "urls": {
+          "$ref": "#/definitions/URLs"
+        },
+        "avatar": {
+          "type": ["string", "null"],
+          "description": "Customer's avatar (personal pic)"
+        },
+        "gender": {
+          "type": ["string", "null"],
+          "description": "Customer's gender"
+        },
+        "brithday": {
+          "type": ["object", "null"],
+          "properties": {
+            "date": {
+              "type": ["string", "null"],
+              "description": "Birthday date"
+            },
+            "timezone_type": {
+              "type": ["integer", "null"],
+              "description": "Birthday timezone type"
+            },
+            "timezone": {
+              "type": ["string", "null"],
+              "description": "Birthday timezone"
+            }
+          }
+        },
+        "city": {
+          "type": ["string", "null"],
+          "description": "Customer's city"
+        },
+        "country": {
+          "type": ["string", "null"],
+          "description": "Customer's country"
+        },
+        "country_code": {
+          "type": ["string", "null"],
+          "example": "sa",
+          "description": "Customer's country code"
+        },
+        "currency": {
+          "type": ["string", "null"],
+          "description": "Customer's currency"
+        },
+        "location": {
+          "type": ["string", "null"],
+          "description": "Customer's Location"
+        },
+        "updated_at": {
+          "$ref": "#/definitions/Date"
+        }
+      }
+    },
+    "ProductCard": {
+      "description": "Detailed structure of the Product short payload model object showing its fields and data types.",
+      "type": ["object", "null"],
+      "title": "ProductCard",
+      "x-tags": ["Models"],
+      "properties": {
+        "id": {
+          "type": ["number", "null"],
+          "description": "Product ID"
+        },
+        "type": {
+          "type": ["string", "null"],
+          "description": "Product type",
+          "enum": [
+            "product",
+            "service",
+            "group_products",
+            "codes",
+            "digital",
+            "food",
+            "donating"
+          ]
+        },
+        "promotion": {
+          "type": ["object", "null"],
+          "description": "Product promotion details",
+          "properties": {
+            "title": {
+              "type": ["string", "null"],
+              "description": "Promotion title"
+            },
+            "sub_title": {
+              "type": ["string", "null"],
+              "description": "Promotion sub title"
+            }
+          }
+        },
+        "status": {
+          "type": ["string", "null"],
+          "description": "The product status. available values 'hidden','sale','out'"
+        },
+        "is_available": {
+          "type": ["boolean", "null"],
+          "description": "Check if the product is available to order or in-stock"
+        },
+        "sku": {
+          "type": ["string", "null"],
+          "description": "SKU of the product \"Stock Keeping Unit\""
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "Product name"
+        },
+        "price": {
+          "type": ["object", "null"],
+          "description": "Product price details",
+          "properties": {
+            "amount": {
+              "type": ["number", "null"],
+              "description": "Product price amount"
+            },
+            "currency": {
+              "type": ["string", "null"],
+              "description": "Product price currency"
+            }
+          }
+        },
+        "sale_price": {
+          "type": ["object", "null"],
+          "description": "Product sale price details",
+          "properties": {
+            "amount": {
+              "type": ["number", "null"],
+              "description": "Product sale price amount"
+            },
+            "currency": {
+              "type": ["string", "null"],
+              "description": "Product sale price curren"
+            }
+          }
+        },
+        "url": {
+          "type": ["string", "null"],
+          "description": "Product url "
+        },
+        "has_special_price": {
+          "type": ["boolean", "null"],
+          "description": "Is this product has a special price"
+        },
+        "regular_price": {
+          "type": ["object", "null"],
+          "description": "Product regular price details",
+          "properties": {
+            "amount": {
+              "type": ["number", "null"],
+              "description": "Product regular price amount"
+            },
+            "currency": {
+              "type": ["string", "null"],
+              "description": "Product regular price currency"
+            }
+          }
+        },
+        "currency": {
+          "type": ["string", "null"],
+          "description": "Product currency"
+        },
+        "thumbnail": {
+          "type": ["string", "null"],
+          "description": "Product thum"
+        },
+        "calories": {
+          "type": ["string", "null"],
+          "description": "Calories Value",
+          "nullable": true
+        },
+        "mpn": {
+          "type": ["string", "null"],
+          "description": "Manufacturer Part Number",
+          "nullable": true
+        },
+        "gtin": {
+          "type": ["string", "null"],
+          "description": "Global Trade Item Number",
+          "nullable": true
+        },
+        "favorite": {
+          "type": ["string", "null"],
+          "description": "Product marked as favorite",
+          "nullable": true
+        },
+        "starting_price": {
+          "description": "Product starting price",
+          "type": ["string", "null"],
+          "nullable": true
+        }
+      }
+    },
+    "OrderTag": {
+      "description": "Detailed structure of the orders tag model object showing its fields and data types.",
+      "type": ["object", "null"],
+      "x-examples": {},
+      "title": "Order Tag",
+      "x-tags": ["Models"],
+      "properties": {
+        "id": {
+          "type": ["number", "null"],
+          "description": "Order tag id"
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "Order tag name"
+        }
+      }
+    },
+    "Branch": {
+      "description": "Detailed structure of the branch model object showing its fields and data types.",
+      "type": ["object", "null"],
+      "title": "Branch",
+      "x-tags": ["Models"],
+      "properties": {
+        "id": {
+          "description": "Branch ID",
+          "type": ["integer", "null"]
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "Branch name"
+        },
+        "status": {
+          "type": ["string", "null"],
+          "description": "Branch status ( active , inactive )"
+        },
+        "location": {
+          "type": ["object", "null"],
+          "description": "Branch location on map ( longitude, latitude )",
+          "properties": {
+            "lat": {
+              "type": ["string", "null"],
+              "description": "latitude"
+            },
+            "lng": {
+              "type": ["string", "null"],
+              "description": "longitude"
+            }
+          }
+        },
+        "contacts": {
+          "type": ["object", "null"],
+          "description": "Branch contacts",
+          "properties": {
+            "phone": {
+              "type": ["string", "null"],
+              "description": "Branch phone number"
+            },
+            "whatsapp": {
+              "type": ["string", "null"],
+              "description": "Branch whatsapp number"
+            },
+            "telephone": {
+              "type": ["string", "null"],
+              "description": "Branch telephone number"
+            }
+          }
+        },
+        "preparation_time": {
+          "type": ["string", "null"],
+          "description": "Needed time to get an order ready for shipping or pickup"
+        },
+        "is_open": {
+          "type": ["boolean", "null"],
+          "description": "Is Branch currently open or closed"
+        },
+        "closest_time": {
+          "description": "The time when the branch will be closed based on the request time. Each request may have a different value. ",
+          "nullable": true
+        },
+        "working_hours": {
+          "description": "Branch working hours - `required if` branch.type is \\\"branch\\\"",
+          "type": ["array", "null"],
+          "items": {
+            "type": ["string", "null"]
+          }
+        },
+        "is_cod_available": {
+          "type": ["string", "null"],
+          "description": "Cash on delivery availability status",
+          "enum": ["on", "off"],
+          "example": "on"
+        },
+        "is_default": {
+          "type": ["boolean", "null"],
+          "description": "Is this branch the default branch for all operations or not."
+        },
+        "type": {
+          "type": ["string", "null"],
+          "enum": ["branch", "warehouse"],
+          "description": "Branch type (branch - warehouse)"
+        },
+        "cod_cost": {
+          "type": ["string", "null"],
+          "description": "Cash on delivery cost value\n\n"
+        },
+        "country": {
+          "$ref": "#/definitions/Country"
+        },
+        "city": {
+          "$ref": "#/definitions/City"
+        }
+      }
+    },
+    "Country": {
+      "description": "Detailed structure of the country model object showing its fields and data types.",
+      "type": ["object", "null"],
+      "x-examples": {},
+      "x-tags": ["Models"],
+      "title": "Country",
+      "properties": {
+        "id": {
+          "description": "Country ID",
+          "type": ["integer", "null"]
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "Country name"
+        },
+        "name_en": {
+          "type": ["string", "null"],
+          "description": "Country English name"
+        },
+        "code": {
+          "type": ["string", "null"],
+          "description": "Country iso code"
+        },
+        "mobile_code": {
+          "type": ["string", "null"],
+          "description": "Country mobile code"
+        }
+      }
+    },
+    "City": {
+      "description": "Detailed structure of the city model object showing its fields and data types.",
+      "type": ["object", "null"],
+      "x-examples": {},
+      "x-tags": ["Models"],
+      "title": "City",
+      "properties": {
+        "id": {
+          "type": ["integer", "null"],
+          "description": "City ID"
+        },
+        "name": {
+          "type": ["string", "null"],
+          "description": "City name"
+        },
+        "name_en": {
+          "type": ["string", "null"],
+          "description": "City English name"
+        }
+      }
+    }
+  }
+}

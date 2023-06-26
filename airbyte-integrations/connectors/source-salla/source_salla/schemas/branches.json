@@ -1,0 +1,156 @@
+{      
+    "type": ["object", "null"],
+    "additionalProperties": true,
+    "properties": {
+        "id": {
+            "description": "Branch ID",
+            "type": ["integer", "null"]
+        },
+        "name": {
+            "type": ["string", "null"],
+            "description": "Branch name"
+        },
+        "status": {
+            "type": ["string", "null"],
+            "description": "Branch status ( active , inactive )"
+        },
+        "location": {
+            "type": ["object", "null"],
+            "description": "Branch location on map ( longitude, latitude )",
+            "properties": {
+                "lat": {
+                    "type": ["string", "null"],
+                    "description": "latitude"
+                },
+                "lng": {
+                    "type": ["string", "null"],
+                    "description": "longitude"
+                }
+            }
+        },
+        "contacts": {
+            "type": ["object", "null"],
+            "description": "Branch contacts",
+            "properties": {
+                "phone": {
+                    "type": ["string", "null"],
+                    "description": "Branch phone number"
+                },
+                "whatsapp": {
+                    "type": ["string", "null"],
+                    "description": "Branch whatsapp number"
+                },
+                "telephone": {
+                    "type": ["string", "null"],
+                    "description": "Branch telephone number"
+                }
+            }
+        },
+        "preparation_time": {
+            "type": ["string", "null"],
+            "description": "Needed time to get an order ready for shipping or pickup"
+        },
+        "is_open": {
+            "type": ["boolean", "null"],
+            "description": "Is Branch currently open or closed"
+        },
+        "closest_time": {
+            "description": "The time when the branch will be closed based on the request time. Each request may have a different value. ",
+            "nullable": true
+        },
+        "working_hours": {
+            "description": "Branch working hours - `required if` branch.type is \\\"branch\\\"",
+            "type": ["array", "null"],
+            "items": {
+                "type": ["string", "null"]
+            }
+        },
+        "is_cod_available": {
+            "type": ["string", "null"],
+            "description": "Cash on delivery availability status",
+            "enum": [
+                "on",
+                "off"
+            ],
+            "example": "on"
+        },
+        "is_default": {
+            "type": ["boolean", "null"],
+            "description": "Is this branch the default branch for all operations or not."
+        },
+        "type": {
+            "type": ["string", "null"],
+            "enum": [
+                "branch",
+                "warehouse"
+            ],
+            "description": "Branch type (branch - warehouse)"
+        },
+        "cod_cost": {
+            "type": ["string", "null"],
+            "description": "Cash on delivery cost value\n\n"
+        },
+        "country": {
+            "$ref": "#/definitions/Country"
+        },
+        "city": {
+            "$ref": "#/definitions/City"
+        }
+    },
+    "definitions": {
+        "Country": {
+            "description": "Detailed structure of the country model object showing its fields and data types.",
+            "type": ["object", "null"],
+            "x-examples": {},
+            "x-tags": [
+                "Models"
+            ],
+            "title": "Country",
+            "properties": {
+                "id": {
+                    "description": "Country ID",
+                    "type": ["integer", "null"]
+                },
+                "name": {
+                    "type": ["string", "null"],
+                    "description": "Country name"
+                },
+                "name_en": {
+                    "type": ["string", "null"],
+                    "description": "Country English name"
+                },
+                "code": {
+                    "type": ["string", "null"],
+                    "description": "Country iso code"
+                },
+                "mobile_code": {
+                    "type": ["string", "null"],
+                    "description": "Country mobile code"
+                }
+            }
+        },
+        "City": {
+            "description": "Detailed structure of the city model object showing its fields and data types.",
+            "type": ["object", "null"],
+            "x-examples": {},
+            "x-tags": [
+                "Models"
+            ],
+            "title": "City",
+            "properties": {
+                "id": {
+                    "type": ["integer", "null"],
+                    "description": "City ID"
+                },
+                "name": {
+                    "type": ["string", "null"],
+                    "description": "City name"
+                },
+                "name_en": {
+                    "type": ["string", "null"],
+                    "description": "City English name"
+                }
+            }
+        }
+    }
+}

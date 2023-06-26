@@ -1,0 +1,138 @@
+{
+    "type": ["object", "null"],
+    "additionalProperties": true,
+    "properties": {
+        "id": {
+            "type": ["number", "null"],
+            "description": "Customer's ID"
+        },
+        "first_name": {
+            "type": ["string", "null"],
+            "description": "Customer's first name"
+        },
+        "last_name": {
+            "type": ["string", "null"],
+            "description": "Customer's last name"
+        },
+        "mobile": {
+            "type": ["number", "null"],
+            "description": "Customer's mobile number, without country code"
+        },
+        "mobile_code": {
+            "type": ["string", "null"],
+            "description": "Customer's country mobile code"
+        },
+        "email": {
+            "type": ["string", "null"],
+            "description": "Customer's email"
+        },
+        "urls": {
+            "$ref": "#/definitions/URLs"
+        },
+        "avatar": {
+            "type": ["string", "null"],
+            "description": "Customer's avatar (personal pic)"
+        },
+        "gender": {
+            "type": ["string", "null"],
+            "description": "Customer's gender"
+        },
+        "brithday": {
+            "type": ["object", "null"],
+            "properties": {
+                "date": {
+                    "type": ["string", "null"],
+                    "description": "Birthday date"
+                },
+                "timezone_type": {
+                    "type": ["integer", "null"],
+                    "description": "Birthday timezone type"
+                },
+                "timezone": {
+                    "type": ["string", "null"],
+                    "description": "Birthday timezone"
+                }
+            }
+        },
+        "city": {
+            "type": ["string", "null"],
+            "description": "Customer's city"
+        },
+        "country": {
+            "type": ["string", "null"],
+            "description": "Customer's country"
+        },
+        "country_code": {
+            "type": ["string", "null"],
+            "example": "sa",
+            "description": "Customer's country code"
+        },
+        "currency": {
+            "type": ["string", "null"],
+            "description": "Customer's currency"
+        },
+        "location": {
+            "type": ["string", "null"],
+            "description": "Customer's Location"
+        },
+        "updated_at": {
+            "$ref": "#/definitions/Date"
+        }
+    },
+    "definitions": {
+        "URLs": {
+            "description": "To help companies and merchants, Salla provides a “urls” attribute that has been added to different modules to guide the merchants to have the full URL of this module from both scopes, the dashboard scope as a store admin, and as a customer.",
+            "type": ["object", "null"],
+            "title": "Urls",
+            "x-examples": {
+                "Example": {
+                    "customer": "https://shtara.com/profile",
+                    "admin": "https://shtara.com/profiles"
+                }
+            },
+            "x-tags": [
+                "Models"
+            ],
+            "properties": {
+                "customer": {
+                    "type": ["string", "null"],
+                    "example": "https://shtara.com/profile"
+                },
+                "admin": {
+                    "type": ["string", "null"],
+                    "example": "https://shtara.com/profile"
+                }
+            }
+        },
+        "Date": {
+            "description": "",
+            "type": ["object", "null"],
+            "title": "Date",
+            "x-examples": {
+                "Example": {
+                    "date": "2020-10-14 14:28:03.000000",
+                    "timezone_type": 3,
+                    "timezone": "Asia/Riyadh"
+                }
+            },
+            "x-tags": [
+                "Models"
+            ],
+            "properties": {
+                "date": {
+                    "type": ["string", "null"],
+                    "format": "date-time",
+                    "description": "\"2020-10-14 14:28:03.000000\""
+                },
+                "timezone_type": {
+                    "type": ["number", "null"],
+                    "description": "TimeZone type, for Middel East = 3 "
+                },
+                "timezone": {
+                    "type": ["string", "null"],
+                    "description": "\"Asia/Riyadh\""
+                }
+            }
+        }
+    }
+}

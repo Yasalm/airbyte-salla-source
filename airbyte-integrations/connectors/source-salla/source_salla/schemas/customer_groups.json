@@ -1,0 +1,61 @@
+{  
+    "type": ["object", "null"],
+    "additionalProperties": true,
+    "properties": {
+        "id": {
+            "type": ["number", "null"],
+            "description": "Customer group ID"
+        },
+        "name": {
+            "type": ["string", "null"],
+            "description": "Name of the Group"
+        },
+        "conditions": {
+            "type": ["object", "null"],
+            "description": "conditions that must apply to be member of the group\nExpample: 'total_sales > 100', meaning if the customer have sales more than 100, then he may enter this group\n\nthese conditions in case you want to use auto assign customers to group.",
+            "properties": {
+                "type": {
+                    "type": ["string", "null"],
+                    "description": "Condition type"
+                },
+                "symbol": {
+                    "type": ["string", "null"],
+                    "description": "condition operator"
+                },
+                "value": {
+                    "type": ["number", "null"],
+                    "description": "condition after to be after the operator"
+                }
+            }
+        },
+        "features": {
+            "$ref": "#/definitions/CustomerGroupFeatures"
+        }
+    },
+    "definitions": {
+        "CustomerGroupFeatures": {
+            "description": "The features will be available for customers they belong to this group. by default all features will be available.",
+            "type": ["object", "null"],
+            "properties": {
+                "payment_method": {
+                    "type": ["array", "null"],
+                    "description": "payment options available to the group\n\n",
+                    "items": {
+                        "type": ["string", "null"]
+                    }
+                },
+                "shipping": {
+                    "type": ["array", "null"],
+                    "description": "shipping methods available to the group\n\n",
+                    "items": {
+                        "type": ["string", "null"]
+                    }
+                }
+            },
+            "title": "CustomerGroupFeatures",
+            "x-tags": [
+                "Models"
+            ]
+        }
+    }
+}

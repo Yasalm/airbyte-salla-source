@@ -1,0 +1,230 @@
+{
+    "type": ["object", "null"],
+    "additionalProperties": true,
+    "properties": {
+        "status": {
+            "type": ["number", "null"],
+            "description": "Response Status Code"
+        },
+        "success": {
+            "type": ["boolean", "null"],
+            "description": "Whether or not the response is successful"
+        },
+        "data": {
+            "type": ["array", "null"],
+            "uniqueItems": true,
+            "items": {
+                "type": ["object", "null"],
+                "properties": {
+                    "id": {
+                        "type": ["number", "null"],
+                        "description": "Cart ID"
+                    },
+                    "total": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "amount": {
+                                "type": ["number", "null"],
+                                "description": "Total Amount"
+                            },
+                            "currency": {
+                                "type": ["string", "null"],
+                                "description": "Total Currency"
+                            }
+                        }
+                    },
+                    "subtotal": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "amount": {
+                                "type": ["number", "null"],
+                                "description": "Subtotal Amount"
+                            },
+                            "currency": {
+                                "type": ["string", "null"],
+                                "description": "Subtotal Currency"
+                            }
+                        }
+                    },
+                    "total_discount": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "amount": {
+                                "type": ["number", "null"],
+                                "description": "Total Discount Amount"
+                            },
+                            "currency": {
+                                "type": ["string", "null"],
+                                "description": "Total Discount Currency"
+                            }
+                        }
+                    },
+                    "checkout_url": {
+                        "type": ["string", "null"],
+                        "description": "Checkout URL"
+                    },
+                    "age_in_minutes": {
+                        "type": ["number", "null"],
+                        "description": "The age of cart, aka the difference between cart's `created_at` and now in minutes."
+                    },
+                    "created_at": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "date": {
+                                "type": ["string", "null"],
+                                "description": "Created At Date Timestamp"
+                            },
+                            "timezone_type": {
+                                "type": ["number", "null"],
+                                "description": "Timezone Type"
+                            },
+                            "timezone": {
+                                "type": ["string", "null"],
+                                "description": "Timezone value"
+                            }
+                        }
+                    },
+                    "updated_at": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "date": {
+                                "type": ["string", "null"],
+                                "description": "Update At Date Timestamp"
+                            },
+                            "timezone_type": {
+                                "type": ["number", "null"],
+                                "description": "Timezone Type"
+                            },
+                            "timezone": {
+                                "type": ["string", "null"],
+                                "description": "Timezone value"
+                            }
+                        }
+                    },
+                    "customer": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "id": {
+                                "type": ["number", "null"],
+                                "description": "Customer ID"
+                            },
+                            "name": {
+                                "type": ["string", "null"],
+                                "description": "Customer Name"
+                            },
+                            "mobile": {
+                                "type": ["string", "null"],
+                                "description": "Customer Mobile"
+                            },
+                            "email": {
+                                "type": ["string", "null"],
+                                "description": "Customer Email"
+                            },
+                            "avatar": {
+                                "type": ["string", "null"],
+                                "description": "Customer Avatar"
+                            },
+                            "country": {
+                                "type": ["string", "null"],
+                                "description": "Customer Country"
+                            },
+                            "city": {
+                                "type": ["string", "null"],
+                                "description": "Customer City"
+                            }
+                        }
+                    },
+                    "coupon": {
+                        "type": ["object", "null"],
+                        "properties": {
+                            "id": {
+                                "type": ["number", "null"],
+                                "description": "Coupon ID"
+                            },
+                            "code": {
+                                "type": ["string", "null"],
+                                "description": "Coupon Code"
+                            },
+                            "status": {
+                                "type": ["string", "null"],
+                                "description": "Coupon Status"
+                            },
+                            "type": {
+                                "type": ["string", "null"],
+                                "description": "Coupon Type"
+                            },
+                            "amount": {
+                                "type": ["object", "null"],
+                                "properties": {
+                                    "amount": {
+                                        "type": ["number", "null"],
+                                        "description": "Amount Value"
+                                    },
+                                    "currency": {
+                                        "type": ["string", "null"],
+                                        "description": "Amount currency"
+                                    }
+                                }
+                            },
+                            "minimum_amount": {
+                                "type": ["object", "null"],
+                                "properties": {
+                                    "amount": {
+                                        "type": ["number", "null"],
+                                        "description": "Minimum Amount Value"
+                                    },
+                                    "currency": {
+                                        "type": ["string", "null"],
+                                        "description": "Minimum Amount Currency"
+                                    }
+                                }
+                            },
+                            "expiry_date": {
+                                "type": ["string", "null"],
+                                "description": "Coupon Expiry Date"
+                            },
+                            "created_at": {
+                                "type": ["object", "null"],
+                                "properties": {
+                                    "date": {
+                                        "type": ["string", "null"],
+                                        "description": "Created At Date Timestamp"
+                                    },
+                                    "timezone_type": {
+                                        "type": ["number", "null"],
+                                        "description": "Timezone Type"
+                                    },
+                                    "timezone": {
+                                        "type": ["string", "null"],
+                                        "description": "Timezone Value"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "items": {
+                        "type": ["array", "null"],
+                        "uniqueItems": true,
+                        "items": {
+                            "type": ["object", "null"],
+                            "properties": {
+                                "id": {
+                                    "type": ["number", "null"],
+                                    "description": "Item ID"
+                                },
+                                "product_id": {
+                                    "type": ["number", "null"],
+                                    "description": "Product ID"
+                                },
+                                "quantity": {
+                                    "type": ["number", "null"],
+                                    "description": "Quan"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

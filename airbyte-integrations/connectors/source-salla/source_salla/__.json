@@ -1,0 +1,52 @@
+{
+  "documentationUrl": "https://docsurl.com",
+  "connectionSpecification": {
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Salla Spec",
+    "type": "object",
+    "required": ["credentials", "from_date"],
+    "additionalProperties": true,
+    "properties": {
+      "credentials": {
+        "title": "Authenticate via OAuth 2.0",
+        "type": "object",
+        "required": ["client_id", "client_secret", "refresh_token", "token_expiry_date"],
+        "additionalProperties": true,
+        "properties": {
+          "client_id": {
+            "title": "Client ID",
+            "type": "string",
+            "description": "The Client ID of your developer application",
+            "airbyte_secret": true
+          },
+          "client_secret": {
+            "title": "Client Secret",
+            "type": "string",
+            "description": "The client secret of your developer application",
+            "airbyte_secret": true
+          },
+
+          "access_token": {
+            "title": "Access Token",
+            "type": "string",
+            "description": "Access token returned by salla auth",
+            "airbyte_secret": true
+          },
+          "refresh_token": {
+            "title": "Refresh Token",
+            "type": "string",
+            "description": "A refresh token generated using the above client ID and secret",
+            "airbyte_secret": true
+          }
+        }
+      },
+      "from_date": {
+        "title": "Sync Start Date",
+        "type": "string",
+        "description": "A start date for syncing data from Salla",
+        "formate": "date",
+        "airbyte_secret": false
+      }
+    }
+  }
+}

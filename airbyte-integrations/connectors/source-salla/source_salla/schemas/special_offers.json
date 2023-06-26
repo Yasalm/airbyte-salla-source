@@ -1,0 +1,575 @@
+{
+  "type": ["object", "null"],
+  "title": "Special Offer",
+  "properties": {
+    "id": {
+      "type": ["number", "null"],
+      "description": "Special offer ID"
+    },
+    "name": {
+      "type": ["string", "null"],
+      "description": "Special offer name"
+    },
+    "message": {
+      "type": ["string", "null"],
+      "description": "Special offer message"
+    },
+    "expiry_date": {
+      "type": ["string", "null"],
+      "description": "Special offer end date"
+    },
+    "start_date": {
+      "type": ["string", "null"],
+      "description": "Special offer start date"
+    },
+    "offer_type": {
+      "type": ["string", "null"],
+      "description": "Special offer type",
+      "enum": ["buy_x_get_y", "fixed_amount", "percentage"]
+    },
+    "status": {
+      "type": ["string", "null"],
+      "description": "Special offer status"
+    },
+    "show_price_after_discount": {
+      "type": ["boolean", "null"],
+      "description": "Whether or not to show price after discount"
+    },
+    "show_discounts_table_message": {
+      "type": ["boolean", "null"],
+      "description": "Whether or not to show the discounts table message"
+    },
+    "buy": {
+      "type": ["object", "null"],
+      "description": "Details of what to buy to get the offer",
+      "properties": {
+        "type": { 
+          "type": ["string", "null"],
+          "description": "required-if `offer_type = buy_x_get_y`",
+          "enum": ["category", "product"]
+        },
+        "quantity": {
+          "type": ["number", "null"],
+          "description": "required-if `offer_type = buy_x_get_y`"
+        },
+        "products": {
+          "type": ["array", "null"],
+          "uniqueItems": true,
+          "description": "required-if `buy.type = product`\n\nProducts IDs as array",
+          "items": {
+            "id": {
+              "type": ["number", "null"],
+              "description": "Product ID"
+            },
+            "type": { 
+              "type": ["string", "null"],
+              "description": "Product type",
+              "enum": [
+                "product",
+                "service",
+                "group_products",
+                "codes",
+                "digital",
+                "food",
+                "donating"
+              ]
+            },
+            "promotion": {
+              "type": ["object", "null"],
+              "description": "Product promotion details",
+              "properties": {
+                "title": {
+                  "type": ["string", "null"],
+                  "description": "Promotion title"
+                },
+                "sub_title": {
+                  "type": ["string", "null"],
+                  "description": "Promotion sub title"
+                }
+              }
+            },
+            "status": {
+              "type": ["string", "null"],
+              "description": "The product status. available values 'hidden','sale','out'"
+            },
+            "is_available": {
+              "type": ["boolean", "null"],
+              "description": "Check if the product is available to order or in-stock"
+            },
+            "sku": {
+              "type": ["string", "null"],
+              "description": "SKU of the product \"Stock Keeping Unit\""
+            },
+            "name": {
+              "type": ["string", "null"],
+              "description": "Product name"
+            },
+            "price": {
+              "type": ["object", "null"],
+              "description": "Product price details",
+              "properties": {
+                "amount": {
+                  "type": ["number", "null"],
+                  "description": "Product price amount"
+                },
+                "currency": {
+                  "type": ["string", "null"],
+                  "description": "Product price currency"
+                }
+              }
+            },
+            "sale_price": {
+              "type": ["object", "null"],
+              "description": "Product sale price details",
+              "properties": {
+                "amount": {
+                  "type": ["number", "null"],
+                  "description": "Product sale price amount"
+                },
+                "currency": {
+                  "type": ["string", "null"],
+                  "description": "Product sale price curren"
+                }
+              }
+            },
+            "url": {
+              "type": ["string", "null"],
+              "description": "Product url "
+            },
+            "has_special_price": {
+              "type": ["boolean", "null"],
+              "description": "Is this product has a special price"
+            },
+            "regular_price": {
+              "type": ["object", "null"],
+              "description": "Product regular price details",
+              "properties": {
+                "amount": {
+                  "type": ["number", "null"],
+                  "description": "Product regular price amount"
+                },
+                "currency": {
+                  "type": ["string", "null"],
+                  "description": "Product regular price currency"
+                }
+              }
+            },
+            "currency": {
+              "type": ["string", "null"],
+              "description": "Product currency"
+            },
+            "thumbnail": {
+              "type": ["string", "null"],
+              "description": "Product thum"
+            },
+            "calories": {
+              "type": ["string", "null"],
+              "description": "Calories Value",
+              "nullable": true
+            },
+            "mpn": {
+              "type": ["string", "null"],
+              "description": "Manufacturer Part Number",
+              "nullable": true
+            },
+            "gtin": {
+              "type": ["string", "null"],
+              "description": "Global Trade Item Number",
+              "nullable": true
+            },
+            "favorite": {
+              "type": ["string", "null"],
+              "description": "Product marked as favorite",
+              "nullable": true
+            },
+            "starting_price": {
+              "description": "Product starting price",
+              "type": ["string", "null"],
+              "nullable": true
+            }
+          }
+        },
+        "categories": {
+          "type": ["array", "null"],
+          "description": "required-if `buy.type = category`\n\nCategory IDs as array",
+          "items": {
+            "description": "",
+            "type": ["object", "null"],
+            "title": "Category",
+            "x-tags": ["Models"],
+            "x-examples": {},
+            "properties": {
+              "id": {
+                "type": ["number", "null"],
+                "description": "Category ID"
+              },
+              "name": {
+                "type": ["string", "null"],
+                "description": "Category name. 🌐 [Support multi-language](docs/1.%20Introduction/1.6.Multi-Language-Support.md)"
+              },
+              "urls": {
+                "$ref": "#/definitions/URLs"
+              },
+              "items": {
+                "type": ["array", "null"],
+                "uniqueItems": true,
+                "minItems": 1,
+                "description": "Category items that contains list of sub categories for this category",
+                "items": {
+                  "type": ["array", "null"],
+                  "description": "required-if `get.type = category`\n\nCategory IDs as array",
+                  "items": {
+                    "description": "",
+                    "type": ["object", "null"],
+                    "title": "Category",
+                    "x-tags": ["Models"],
+                    "x-examples": {},
+                    "properties": {
+                      "id": {
+                        "type": ["number", "null"],
+                        "description": "Category ID"
+                      },
+                      "name": {
+                        "type": ["string", "null"],
+                        "description": "Category name. 🌐 [Support multi-language](docs/1.%20Introduction/1.6.Multi-Language-Support.md)"
+                      },
+                      "urls": {
+                        "$ref": "#/definitions/URLs"
+                      },
+                      "items": {
+                        "type": ["array", "null"],
+                        "uniqueItems": true,
+                        "minItems": 1,
+                        "description": "Category items that contains list of sub categories for this category",
+                        "items": {
+                          "id": {
+                            "type": ["number", "null"],
+                            "description": "Category ID"
+                          },
+                          "name": {
+                            "type": ["string", "null"],
+                            "description": "Category name. 🌐 [Support multi-language](docs/1.%20Introduction/1.6.Multi-Language-Support.md)"
+                          },
+                          "urls": {
+                            "$ref": "#/definitions/URLs"
+                          },
+                          "items": {
+                            "type": ["array", "null"],
+                            "uniqueItems": true,
+                            "minItems": 1,
+                            "description": "Category items that contains list of sub categories for this category",
+                            "items": {}
+                          },
+                          "parent_id": {
+                            "type": ["integer", "null"],
+                            "description": "Category Parent ID"
+                          },
+                          "status": {
+                            "type": ["string", "null"],
+                            "enum": ["active", "hidden"],
+                            "description": "Category status"
+                          },
+                          "sort_order": {
+                            "type": ["integer", "null"],
+                            "description": "Category sort ID which is used to the set category order",
+                            "nullable": true
+                          }
+                        }
+                      },
+                      "parent_id": {
+                        "type": ["integer", "null"],
+                        "description": "Category Parent ID"
+                      },
+                      "status": {
+                        "type": ["string", "null"],
+                        "enum": ["active", "hidden"],
+                        "description": "Category status"
+                      },
+                      "sort_order": {
+                        "type": ["integer", "null"],
+                        "description": "Category sort ID which is used to the set category order",
+                        "nullable": true
+                      }
+                    }
+                  }
+                }
+              },
+              "parent_id": {
+                "type": ["integer", "null"],
+                "description": "Category Parent ID"
+              },
+              "status": {
+                "type": ["string", "null"],
+                "enum": ["active", "hidden"],
+                "description": "Category status"
+              },
+              "sort_order": {
+                "type": ["integer", "null"],
+                "description": "Category sort ID which is used to the set category order",
+                "nullable": true
+              }
+            }
+          }
+        }
+      }
+    },
+    "get": {
+      "type": ["object", "null"],
+      "description": "Details of the offer ",
+      "properties": {
+        "type": { 
+          "type": ["string", "null"],
+          "description": "Get Offer Type"
+        },
+        "discount_type": {
+          "type": ["string", "null"],
+          "description": "required-if `offer_type = buy_x_get_y`",
+          "enum": ["percentage ", "free-product"]
+        },
+        "quantity": {
+          "type": ["integer", "null"],
+          "description": "required-if `offer_type = buy_x_get_y`"
+        },
+        "products": {
+          "type": ["array", "null"],
+          "uniqueItems": true,
+          "description": "required-if `get.type = product`\n\nProducts IDs as array",
+          "items": {
+            "id": {
+              "type": ["number", "null"],
+              "description": "Product ID"
+            },
+            "type": { 
+              "type": ["string", "null"],
+              "description": "Product type",
+              "enum": [
+                "product",
+                "service",
+                "group_products",
+                "codes",
+                "digital",
+                "food",
+                "donating"
+              ]
+            },
+            "promotion": {
+              "type": ["object", "null"],
+              "description": "Product promotion details",
+              "properties": {
+                "title": {
+                  "type": ["string", "null"],
+                  "description": "Promotion title"
+                },
+                "sub_title": {
+                  "type": ["string", "null"],
+                  "description": "Promotion sub title"
+                }
+              }
+            },
+            "status": {
+              "type": ["string", "null"],
+              "description": "The product status. available values 'hidden','sale','out'"
+            },
+            "is_available": {
+              "type": ["boolean", "null"],
+              "description": "Check if the product is available to order or in-stock"
+            },
+            "sku": {
+              "type": ["string", "null"],
+              "description": "SKU of the product \"Stock Keeping Unit\""
+            },
+            "name": {
+              "type": ["string", "null"],
+              "description": "Product name"
+            },
+            "price": {
+              "type": ["object", "null"],
+              "description": "Product price details",
+              "properties": {
+                "amount": {
+                  "type": ["number", "null"],
+                  "description": "Product price amount"
+                },
+                "currency": {
+                  "type": ["string", "null"],
+                  "description": "Product price currency"
+                }
+              }
+            },
+            "sale_price": {
+              "type": ["object", "null"],
+              "description": "Product sale price details",
+              "properties": {
+                "amount": {
+                  "type": ["number", "null"],
+                  "description": "Product sale price amount"
+                },
+                "currency": {
+                  "type": ["string", "null"],
+                  "description": "Product sale price curren"
+                }
+              }
+            },
+            "url": {
+              "type": ["string", "null"],
+              "description": "Product url "
+            },
+            "has_special_price": {
+              "type": ["boolean", "null"],
+              "description": "Is this product has a special price"
+            },
+            "regular_price": {
+              "type": ["object", "null"],
+              "description": "Product regular price details",
+              "properties": {
+                "amount": {
+                  "type": ["number", "null"],
+                  "description": "Product regular price amount"
+                },
+                "currency": {
+                  "type": ["string", "null"],
+                  "description": "Product regular price currency"
+                }
+              }
+            },
+            "currency": {
+              "type": ["string", "null"],
+              "description": "Product currency"
+            },
+            "thumbnail": {
+              "type": ["string", "null"],
+              "description": "Product thum"
+            },
+            "calories": {
+              "type": ["string", "null"],
+              "description": "Calories Value",
+              "nullable": true
+            },
+            "mpn": {
+              "type": ["string", "null"],
+              "description": "Manufacturer Part Number",
+              "nullable": true
+            },
+            "gtin": {
+              "type": ["string", "null"],
+              "description": "Global Trade Item Number",
+              "nullable": true
+            },
+            "favorite": {
+              "type": ["string", "null"],
+              "description": "Product marked as favorite",
+              "nullable": true
+            },
+            "starting_price": {
+              "description": "Product starting price",
+              "type": ["string", "null"],
+              "nullable": true
+            }
+          }
+        },
+        "categories": {
+          "type": ["array", "null"],
+          "description": "required-if `get.type = category`\n\nCategory IDs as array",
+          "items": {
+            "description": "",
+            "type": ["object", "null"],
+            "title": "Category",
+            "x-tags": ["Models"],
+            "x-examples": {},
+            "properties": {
+              "id": {
+                "type": ["number", "null"],
+                "description": "Category ID"
+              },
+              "name": {
+                "type": ["string", "null"],
+                "description": "Category name. 🌐 [Support multi-language](docs/1.%20Introduction/1.6.Multi-Language-Support.md)"
+              },
+              "urls": {
+                "$ref": "#/definitions/URLs"
+              },
+              "items": {
+                "type": ["array", "null"],
+                "uniqueItems": true,
+                "minItems": 1,
+                "description": "Category items that contains list of sub categories for this category",
+                "items": {
+                  "id": {
+                    "type": ["number", "null"],
+                    "description": "Category ID"
+                  },
+                  "name": {
+                    "type": ["string", "null"],
+                    "description": "Category name. 🌐 [Support multi-language](docs/1.%20Introduction/1.6.Multi-Language-Support.md)"
+                  },
+                  "urls": {
+                    "$ref": "#/definitions/URLs"
+                  },
+                  "items": {
+                    "type": ["array", "null"],
+                    "uniqueItems": true,
+                    "minItems": 1,
+                    "description": "Category items that contains list of sub categories for this category",
+                    "items": {}
+                  },
+                  "parent_id": {
+                    "type": ["integer", "null"],
+                    "description": "Category Parent ID"
+                  },
+                  "status": {
+                    "type": ["string", "null"],
+                    "enum": ["active", "hidden"],
+                    "description": "Category status"
+                  },
+                  "sort_order": {
+                    "type": ["integer", "null"],
+                    "description": "Category sort ID which is used to the set category order",
+                    "nullable": true
+                  }
+                }
+              },
+              "parent_id": {
+                "type": ["integer", "null"],
+                "description": "Category Parent ID"
+              },
+              "status": {
+                "type": ["string", "null"],
+                "enum": ["active", "hidden"],
+                "description": "Category status"
+              },
+              "sort_order": {
+                "type": ["integer", "null"],
+                "description": "Category sort ID which is used to the set category order",
+                "nullable": true
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "URLs": {
+      "description": "To help companies and merchants, Salla provides a “urls” attribute that has been added to different modules to guide the merchants to have the full URL of this module from both scopes, the dashboard scope as a store admin, and as a customer.",
+      "type": ["object", "null"],
+      "title": "Urls",
+      "x-examples": {
+        "Example": {
+          "customer": "https://shtara.com/profile",
+          "admin": "https://shtara.com/profiles"
+        }
+      },
+      "x-tags": ["Models"],
+      "properties": {
+        "customer": {
+          "type": ["string", "null"],
+          "example": "https://shtara.com/profile"
+        },
+        "admin": {
+          "type": ["string", "null"],
+          "example": "https://shtara.com/profile"
+        }
+      }
+    }
+  }
+}

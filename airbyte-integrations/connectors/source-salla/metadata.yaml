@@ -1,0 +1,22 @@
+data:
+  allowedHosts:
+    hosts:
+      - TODO # Please change to the hostname of the source.
+  registries:
+    oss:
+      enabled: false
+  connectorSubtype: api
+  connectorType: source
+  definitionId: 3a36a888-d74c-4140-8e20-245d0dbc15f4
+  dockerImageTag: 0.1.0
+  dockerRepository: airbyte/source-salla
+  githubIssueLabel: source-salla
+  icon: salla.svg
+  license: MIT
+  name: Salla
+  releaseDate: TODO
+  releaseStage: alpha
+  documentationUrl: https://docs.airbyte.com/integrations/sources/salla
+  tags:
+    - language:python
+metadataSpecVersion: "1.0"

@@ -1,0 +1,122 @@
+{
+    "type": ["null", "object"],
+    "additionalProperties": true,
+    "properties": {
+        "name": {
+            "type": ["null", "string"],
+            "description": "Product name"
+        },
+        "price": {
+            "type": ["null", "number"],
+            "description": "Product price"
+        },
+        "status": {
+            "type": ["null", "string"],
+            "description": "The product status. available values 'hidden','sale','out'"
+        },
+        "product_type": {
+            "type": ["null", "string"],
+            "description": "Product type. Available values are, 'product', 'service', 'group_products', 'codes', 'digital', 'food', and 'donating'"
+        },
+        "quantity": {
+            "type": ["null", "number"],
+            "description": "Product quantity"
+        },
+        "unlimited_quantity": {
+            "type": ["null", "boolean"],
+            "description": "Show if this product has unlimited quantity or not"
+        },
+        "description": {
+            "type": ["null", "string"],
+            "description": "Product description"
+        },
+        "categories": {
+            "type": ["null", "array"],
+            "description": "a list of categories ids, that will be associate with the product.",
+            "items": {}
+        },
+        "min_amount_donating": {
+            "type": ["null", "number"],
+            "description": "Minimum donating amount. "
+        },
+        "max_amount_donating": {
+            "type": ["null", "number"],
+            "description": "Maximum donating amount. "
+        },
+        "sale_price": {
+            "type": ["null", "number"],
+            "description": "Product sale price"
+        },
+        "cost_price": {
+            "type": ["null", "number"],
+            "description": "Product cost price"
+        },
+        "sale_end": {
+            "type": ["null", "string"],
+            "description": "Product sale end"
+        },
+        "require_shipping": {
+            "type": ["null", "boolean"],
+            "description": "determent if the product require shipping or not."
+        },
+        "maximum_quantity_per_order": {
+            "type": ["null", "number"],
+            "description": "Maximum product quantity for each order."
+        },
+        "weight": {
+            "type": ["null", "number"],
+            "description": "if applicable the weight of the product."
+        },
+        "sku": {
+            "type": ["null", "string"],
+            "description": "Product sku"
+        },
+        "hide_quantity": {
+            "type": ["null", "boolean"],
+            "description": "weather to hide the quantity or not."
+        },
+        "enable_upload_image": {
+            "type": ["null", "boolean"],
+            "description": "To enable upload image for the product when the customer add it to cart."
+        },
+        "enable_note": {
+            "type": ["null", "boolean"],
+            "description": "To enable add note for the product when customer add it to cart.\n\n"
+        },
+        "pinned": {
+            "type": ["null", "boolean"],
+            "description": "if you want to pin the product in categories page."
+        },
+        "active_advance": {
+            "type": ["null", "boolean"],
+            "description": "if you want to activate product advanced option."
+        },
+        "subtitle": {
+            "type": ["null", "string"],
+            "description": "Subtitle of the product will display under product name in pages.\n\n"
+        },
+        "promotion_title": {
+            "type": ["null", "string"],
+            "description": "A label to display in the main image."
+        },
+        "metadata_title": {
+            "type": ["null", "string"],
+            "description": "Metadata title. for SEO purposes"
+        },
+        "metadata_description": {
+            "type": ["null", "string"],
+            "description": "Metadata description. for SEO purposes"
+        },
+        "brand_id": {
+            "type": ["null", "number"],
+            "description": "The brand ID of the product"
+        },
+        "tags": {
+            "type": ["null", "array"],
+            "description": "The Product tags array.",
+            "items": {
+                "type": ["null", "number"]
+            }
+        }
+    }
+}
